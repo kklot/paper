@@ -1,0 +1,19 @@
+Package: paper
+Title: Get and Plot a Paper or a User Publication Profile from SemanticScholar
+Version: 0.0.0.9000
+Authors@R: 
+    person("Van Kinh", "Nguyen", , "k.nguyen@imperial.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Get and Plot a Paper or a User Publication Profile from SemanticScholar
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    dplyr,
+    ggplot2,
+    ggrepel,
+    httr,
+    purrr,
+    tibble

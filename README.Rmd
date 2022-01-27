@@ -1,0 +1,57 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+library(ggplot2)
+library(tidyr)
+```
+
+# paper
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of paper is to produce summary of publication profile of a scientist or a paper.
+
+## Installation
+
+You can install the released version of paper from [CRAN](https://CRAN.R-project.org) with:
+
+```{r}
+# install.packages("paper")
+# not yet
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+```{r}
+# install.packages("devtools")
+# devtools::install_github("kklot/paper")
+library(paper)
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+Get all citations to a paper, number of citations to each of those paper, year, and field of study.
+
+```{r example}
+ex_paper <- a_paper()
+ex_paper
+```
+
+Example citation profile of a single paper. The extra margin is cropped with `pdfcrop`, see [document](https://bookdown.org/yihui/rmarkdown-cookbook/crop-plot.html) here.
+
+```{r, crop = TRUE, width = 3, height = 3}
+plot(ex_paper)
+```
