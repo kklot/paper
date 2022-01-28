@@ -19,6 +19,7 @@ library(tidyr)
 # paper
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of paper is to produce summary of publication profile of a scientist or a paper.
@@ -43,7 +44,48 @@ library(paper)
 
 This is a basic example which shows you how to solve a common problem:
 
+### Search an author
+
+```{r}
+ath <- search_author("Van Kinh Nguyen", limit = 10)
+get_paper(ath, ath$essential$authorId[1])
+```
+
+### Search a paper
+
+- [ ] TODO - easy
+
+### an_author
+
+Get an author's papers
+
+```{r}
+ex_aut <- an_author(level = 'me_only')
+summary(ex_aut)
+ex_aut
+```
+
+Plot profile of an author
+
+```{r, fig.width=3, fig.height=3, fig.cap="My publication profile contribution"}
+plot(ex_aut)
+```
+
+Author's paper and papers cited each of those papers. 
+Rate limit does not allow sending more than 500 requests/minutes.
+
+- [ ] ask for more once the package is more mature
+
+```{r}
+# ex_aut2 <- an_author(level = "me_and_cited_me")
+# ex_aut2
+```
+
+### a_paper
+
 Get all citations to a paper, number of citations to each of those paper, year, and field of study.
+
+These are related papers.
 
 ```{r example}
 ex_paper <- a_paper()
@@ -52,6 +94,6 @@ ex_paper
 
 Example citation profile of a single paper. The extra margin is cropped with `pdfcrop`, see [document](https://bookdown.org/yihui/rmarkdown-cookbook/crop-plot.html) here.
 
-```{r, crop = TRUE, width = 3, height = 3}
+```{r, crop = TRUE, width = 3, height = 3, fig.cap='Profile of all papers that cited this work'}
 plot(ex_paper)
 ```

@@ -264,28 +264,26 @@ plot.an_author <- function(an_author, give_data = FALSE, txt_seed = 1)
             weight = median(citationCount, TRUE), 
             recency = median(year)
         ) %>%
-        dplyr::mutate(fieldsOfStudy = as.factor(fieldsOfStudy), height = size)
+         dplyr::mutate(fieldsOfStudy = as.factor(fieldsOfStudy), height = size)
+    
 
-    plot_gg <- ggplot2::ggplot(
-        plot_data,
-        aes(fieldsOfStudy, log1p(height), alpha = recency)
-    ) +
-    geom_col(width = .1, fill = "#D55E00") +
-    geom_point(aes(size = height),
-        shape = 21,
-        color = "#D55E00",
-        fill = "#E69F00"
-    ) +
-    ggrepel::geom_text_repel(aes(label = fieldsOfStudy), seed = txt_seed) +
-    coord_polar() +
+    max_height <- max(plot_data$height)
+    mid_x <- nlevels(plot_data$fieldsOfStudy) / 2
+    
+    plot_gg <- plot_data %>%
+    dplyr::mutate(fieldsOfStudy = reorder(fieldsOfStudy, dplyr::desc(size))) %>%
+    ggplot2::ggplot() +
+    geom_col(aes(fieldsOfStudy, height, alpha = recency), fill = NA) +
+    geom_text(aes(0, max_height, label = "H-index"), angle = 90, size = 5, color = "gray70", alpha = .5) +
+    geom_text(aes(0, 0, label = attr(an_author, 'hIndex')), size = 50, fontface = 'bold', color = "gray92", alpha = .5) +
+    geom_col(aes(fieldsOfStudy, height, alpha = recency), width = .2, fill = "#D55E00") +
+    geom_point(aes(fieldsOfStudy, height, size = height), shape = 21, color = "#D55E00", fill = "#E69F00") + 
+    ggrepel::geom_text_repel(aes(fieldsOfStudy, height, label = fieldsOfStudy), size = 3, color = 'grey50', seed = txt_seed) +
+    coord_polar(start = 3 * pi /2, direction = 1) +
     theme_void() +
-    scale_alpha(range = c(0.2, 1)) +
-    theme(
-        legend.position = "none",
-        plot.background = element_rect(fill='white'),
-        panel.spacing = grid::unit(c(0,0,0,0), "mm"),
-        plot.margin = grid::unit(c(0, 0, 0, 0), "mm")
-    )
+    scale_alpha(range = c(0.3, 1)) +
+    theme(legend.position = "none") +
+    scale_y_continuous(trans = 'log1p')
     if (give_data)
         return(plot_data)
     plot_gg
