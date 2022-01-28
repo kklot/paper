@@ -2,6 +2,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # paper
+# paper <a href='http://kklot.github.io/paper'><img src='man/figures/logo.png' align="right" height="120" /></a>
 
 <!-- badges: start -->
 

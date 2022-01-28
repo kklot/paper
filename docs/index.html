@@ -7,12 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Get and Plot a Paper or a User Publication Profile from SemanticScholar">
 <title>Get and Plot a Paper or a User Publication Profile from SemanticScholar • paper</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Get and Plot a Paper or a User Publication Profile from SemanticScholar">
 <meta property="og:description" content="Get and Plot a Paper or a User Publication Profile from SemanticScholar">
+<meta property="og:image" content="http://kklot.github.io/paper/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -51,10 +58,17 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="paper">paper<a class="anchor" aria-label="anchor" href="#paper"></a>
-</h1></div>
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="paper">paper<a class="anchor" aria-label="anchor" href="#paper"></a>
+</h1>
+</div>
+</div>
+<div class="section level1">
+<h1 id="paper-">paper 
+<a class="anchor" aria-label="anchor" href="#paper-"></a>
+</h1>
 <!-- badges: start -->
-<!-- badges: end -->
+
 <p>The goal of paper is to produce summary of publication profile of a scientist or a paper.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -73,30 +87,130 @@
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>This is a basic example which shows you how to solve a common problem:</p>
-<p>Get all citations to a paper, number of citations to each of those paper, year, and field of study.</p>
+<div class="section level3">
+<h3 id="search-an-author">Search an author<a class="anchor" aria-label="anchor" href="#search-an-author"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ath</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/search_author.html">search_author</a></span><span class="op">(</span><span class="st">"Van Kinh Nguyen"</span>, limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="co">#&gt; Found 16 potential matches, listing here the 10 authors</span>
+<span class="co">#&gt; use view_web(this_object, authorID) to open the author url in your browser.</span>
+<span class="co">#&gt; use get_paper(this_object, authorID) to get a table of publication</span>
+<span class="co">#&gt; top ten rows</span>
+<span class="co">#&gt; # A tibble: 10 × 5</span>
+<span class="co">#&gt;    name            authorId   affiliations url          most_recent_paper       </span>
+<span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;                   </span>
+<span class="co">#&gt;  1 K. Nguyen       144006459  ,            https://www… Influence of maternal u…</span>
+<span class="co">#&gt;  2 V. Kinh Nguyen  1398832498 ,            https://www… An Egyptian HPAI H5N1 i…</span>
+<span class="co">#&gt;  3 V. Nguyen       2147319167 ,            https://www… 91. Gaps and Opportunit…</span>
+<span class="co">#&gt;  4 N. Kính         3620223    ,            https://www… Prevalence of Advanced …</span>
+<span class="co">#&gt;  5 N. V. Kinh      7909277    ,            https://www… Fomento de la elaboraci…</span>
+<span class="co">#&gt;  6 N. Kinh         52204342   ,            https://www… Evaluate the relationsh…</span>
+<span class="co">#&gt;  7 K. Van Nguyen   6786539    ,            https://www… An Expanded HIV Care Ca…</span>
+<span class="co">#&gt;  8 N. van Kinh     134536179  ,            https://www… Effectiveness of contin…</span>
+<span class="co">#&gt;  9 Kinh Nguyen Van 51926186   ,            https://www… Sofosbuvir-velpatasvir …</span>
+<span class="co">#&gt; 10 Van Kinh Nguyen 2147319144 ,            https://www… Within-host evolutionar…</span>
+<span class="fu"><a href="reference/get_paper.html">get_paper</a></span><span class="op">(</span><span class="va">ath</span>, <span class="va">ath</span><span class="op">$</span><span class="va">essential</span><span class="op">$</span><span class="va">authorId</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 194 × 5</span>
+<span class="co">#&gt;    authorId  paperId                                  url        title      year</span>
+<span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;                                    &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;</span>
+<span class="co">#&gt;  1 144006459 dd9cae6f41971fce1947edd36b811d9bb594d33b https://w… Influenc…  2021</span>
+<span class="co">#&gt;  2 144006459 027eef3c5965af13e9c82a6ac8cca601996b74c0 https://w… Validati…  2020</span>
+<span class="co">#&gt;  3 144006459 2ec4b632b9e1e2e045c7491d3ad03086e8be00ae https://w… Effect o…  2020</span>
+<span class="co">#&gt;  4 144006459 85426b1dedc07183574f27e51e703bab1d880937 https://w… Clinical…  2020</span>
+<span class="co">#&gt;  5 144006459 922cf3c0cff912c07281be34bc8170bb30a734ac https://w… Virologi…  2020</span>
+<span class="co">#&gt;  6 144006459 95f6d25ef4e08f7852f13c787a91dea9bfaa8225 https://w… Survival…  2020</span>
+<span class="co">#&gt;  7 144006459 99b6ed39462e849e25ec261817b13cbfb388f138 https://w… Existenc…  2020</span>
+<span class="co">#&gt;  8 144006459 a3067275da01f65c00cb66a49db43111e9cce222 https://w… EPIDEMIO…  2020</span>
+<span class="co">#&gt;  9 144006459 c3cb349244c2e5100775d1db8e93b0dff4c54fea https://w… Efficacy…  2020</span>
+<span class="co">#&gt; 10 144006459 1e47a1712d433c52eb9b067675aa0ab04d115019 https://w… Cardiova…  2019</span>
+<span class="co">#&gt; # … with 184 more rows</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="search-a-paper">Search a paper<a class="anchor" aria-label="anchor" href="#search-a-paper"></a>
+</h3>
+<ul class="task-list">
+<li>
+<input type="checkbox" disabled>
+TODO - easy</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="an_author">an_author<a class="anchor" aria-label="anchor" href="#an_author"></a>
+</h3>
+<p>Get an author’s papers</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ex_aut</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/an_author.html">an_author</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'me_only'</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">ex_aut</span><span class="op">)</span>
+<span class="co">#&gt; hIndex       :85</span>
+<span class="co">#&gt; paperCount   :268</span>
+<span class="co">#&gt; citationCount:32770</span>
+<span class="va">ex_aut</span>
+<span class="co">#&gt; # A tibble: 285 × 5</span>
+<span class="co">#&gt;    paperId           url                        year citationCount fieldsOfStudy</span>
+<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;                     &lt;dbl&gt;         &lt;int&gt; &lt;list&gt;       </span>
+<span class="co">#&gt;  1 116c1cf1650648d8… https://www.semanticscho…  2021             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  2 6e5170901d940be6… https://www.semanticscho…  2021             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  3 98eb27ccd9f0875e… https://www.semanticscho…  2021             6 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  4 a197dc7522800487… https://www.semanticscho…  2019            21 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  5 e3d5d70005bcc9d3… https://www.semanticscho…  2021             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  6 2eab8dd8db899437… https://www.semanticscho…  2020             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  7 329b30272c884037… https://www.semanticscho…  2019            39 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  8 4a10dffca6dcce9c… https://www.semanticscho…  2020           379 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  9 4a10dffca6dcce9c… https://www.semanticscho…  2020           379 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt; 10 fb73b93de3734a99… https://www.semanticscho…  2019           194 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt; # … with 275 more rows</span></code></pre></div>
+<p>Plot profile of an author</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ex_aut</span><span class="op">)</span></code></pre></div>
+<div class="figure">
+<img src="reference/figures/README-unnamed-chunk-6-1.png" alt="My publication profile contribution" width="100%"><p class="caption">
+My publication profile contribution
+</p>
+</div>
+<p>Author’s paper and papers cited each of those papers. Rate limit does not allow sending more than 500 requests/minutes.</p>
+<ul class="task-list">
+<li>
+<input type="checkbox" disabled>
+ask for more once the package is more mature</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># ex_aut2 &lt;- an_author(level = "me_and_cited_me")</span>
+<span class="co"># ex_aut2</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="a_paper">a_paper<a class="anchor" aria-label="anchor" href="#a_paper"></a>
+</h3>
+<p>Get all citations to a paper, number of citations to each of those paper, year, and field of study.</p>
+<p>These are related papers.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ex_paper</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/a_paper.html">a_paper</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">ex_paper</span>
-<span class="co">#&gt; # A tibble: 111 × 4</span>
-<span class="co">#&gt;    paperId                                   year citationCount fieldsOfStudy</span>
-<span class="co">#&gt;    &lt;chr&gt;                                    &lt;int&gt;         &lt;dbl&gt; &lt;list&gt;       </span>
-<span class="co">#&gt;  1 8dc1e4bac2d0403ba4bec7bcb8abb7534c53ab1f  2022             0 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  2 03dc6ccb0b04d5eb6439c33c185bdd1fe892b76e  2020            24 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  3 04eb972bda6e775d5a15ee49541afca3e3cc93db  2021             4 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  4 0905b384bc98e40c5a9ca20027f5fab3fbc455b4  2021             0 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  5 097bd00d48281dfb987cc2277b34f7706c2aa0ef  2020             2 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  6 10247d86d6b9ea3218d73b1e64ea7ed4b1121752  2021             4 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  7 1346d703959399ba404f251290d0352f0631d242  2021             0 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  8 148bca569a0d2833f05df1297788f64bc6686fa8  2021             0 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt;  9 15e1af8533cd810e976d36845b53f5f54744608a  2018             4 &lt;chr [1]&gt;    </span>
-<span class="co">#&gt; 10 19af8292ff3cc10aad6f190490f0d34691658179  2020            44 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt; # A tibble: 111 × 5</span>
+<span class="co">#&gt;    paperId           url                        year citationCount fieldsOfStudy</span>
+<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;                     &lt;int&gt;         &lt;dbl&gt; &lt;list&gt;       </span>
+<span class="co">#&gt;  1 8dc1e4bac2d0403b… https://www.semanticscho…  2022             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  2 03dc6ccb0b04d5eb… https://www.semanticscho…  2020            24 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  3 04eb972bda6e775d… https://www.semanticscho…  2021             4 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  4 0905b384bc98e40c… https://www.semanticscho…  2021             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  5 097bd00d48281dfb… https://www.semanticscho…  2020             2 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  6 10247d86d6b9ea32… https://www.semanticscho…  2021             4 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  7 1346d703959399ba… https://www.semanticscho…  2021             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  8 148bca569a0d2833… https://www.semanticscho…  2021             0 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt;  9 15e1af8533cd810e… https://www.semanticscho…  2018             4 &lt;chr [1]&gt;    </span>
+<span class="co">#&gt; 10 19af8292ff3cc10a… https://www.semanticscho…  2020            44 &lt;chr [1]&gt;    </span>
 <span class="co">#&gt; # … with 101 more rows</span></code></pre></div>
 <p>Example citation profile of a single paper. The extra margin is cropped with <code>pdfcrop</code>, see <a href="https://bookdown.org/yihui/rmarkdown-cookbook/crop-plot.html" class="external-link">document</a> here.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ex_paper</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
+<div class="figure">
+<img src="reference/figures/README-unnamed-chunk-8-1.png" alt="Profile of all papers that cited this work" width="100%"><p class="caption">
+Profile of all papers that cited this work
+</p>
 </div>
 </div>
+</div>
+</div>
+
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
@@ -120,7 +234,12 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>

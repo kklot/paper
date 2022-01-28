@@ -19,9 +19,30 @@
     <loc>http://kklot.github.io/paper/reference/a_paper.html</loc>
   </url>
   <url>
+    <loc>http://kklot.github.io/paper/reference/an_author.html</loc>
+  </url>
+  <url>
+    <loc>http://kklot.github.io/paper/reference/get_paper.html</loc>
+  </url>
+  <url>
     <loc>http://kklot.github.io/paper/reference/index.html</loc>
   </url>
   <url>
+    <loc>http://kklot.github.io/paper/reference/list_as_tibble.html</loc>
+  </url>
+  <url>
     <loc>http://kklot.github.io/paper/reference/plot.a_paper.html</loc>
+  </url>
+  <url>
+    <loc>http://kklot.github.io/paper/reference/plot.an_author.html</loc>
+  </url>
+  <url>
+    <loc>http://kklot.github.io/paper/reference/search_author.html</loc>
+  </url>
+  <url>
+    <loc>http://kklot.github.io/paper/reference/update_api.html</loc>
+  </url>
+  <url>
+    <loc>http://kklot.github.io/paper/reference/view_web.html</loc>
   </url>
 </urlset>
