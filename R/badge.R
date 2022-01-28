@@ -82,10 +82,38 @@ get_cited_details <- function(chunk) {
         dplyr::bind_rows(.id = "mypaperId")
 }
 
-#' Get details of a single paper
+#' Get details of an_author
+#'
+#' @param id authorId as return by \code{\link[paper]{search_author}}
+#' @param args fields to get 
+#' A comma-separated list of the fields to be returned.  
 #' 
-#' @param id semanticscholar id, doi, pubmed,...
-#' @param get what to get - hardcode now TODO: deal with whatever field requested
+#' The following case-sensitive author fields are recognized:
+#'
+#' - `authorId` - Always included
+#' - `externalIds`
+#' - `url`
+#' - `name` - Included if no fields are specified
+#' - `aliases`
+#' - `affiliations`
+#' - `homepage`
+#' - `paperCount`
+#' - `citationCount`
+#' - `hIndex`
+#' - `papers.paperId` - Always included
+#' - `papers.externalIds`
+#' - `papers.url`
+#' - `papers.title` - Included if no fields are specified
+#' - `papers.abstract`
+#' - `papers.venue`
+#' - `papers.year`
+#' - `papers.referenceCount`
+#' - `papers.citationCount`
+#' - `papers.influentialCitationCount`
+#' - `papers.isOpenAccess`
+#' - `papers.fieldsOfStudy`
+#' - `papers.authors`\- Will include: `authorId` & `name`
+#' 
 #' @param level get the author paper's details only or also details of their
 #' cited papers?
 #' @export
