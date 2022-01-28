@@ -20,24 +20,25 @@ search_author <- function(
     ct <- httr::content(a_list)
     message("Found ", ct$total, " potential matches, listing here the ", limit, " authors")
 
-    paper <- ct$data %>% purrr::map(~ purrr::map_dfr(.x$papers, paper::list_as_tibble))
-    paper <- paper %>%
-        rlang::set_names(ess$authorId) %>%
-        dplyr::bind_rows(.id = "authorId")
-    
-    most_recent_paper <- paper %>%
-        group_by(authorId) %>%
-        dplyr::arrange(dplyr::desc(year), .by_group = TRUE) %>%
-        dplyr::slice_head(n = 1) %>%
-        dplyr::select(authorId, most_recent_paper = title)
-    
     essential <- ct$data %>%
         purrr::map_dfr(function(x) {
             x$affiliations <- paste0(unlist(list()), ",")
             tibble::as_tibble(x[c("name", "authorId", "affiliations", "url")])
-        }) %>%
-        dplyr::left_join(most_recent_paper, by = "authorId")
+        })
     
+    paper <- ct$data %>% purrr::map(~ purrr::map_dfr(.x$papers, paper::list_as_tibble))
+    paper <- paper %>%
+        rlang::set_names(essential$authorId) %>%
+        dplyr::bind_rows(.id = "authorId")
+    
+    most_recent_paper <- paper %>%
+        dplyr::group_by(authorId) %>%
+        dplyr::arrange(dplyr::desc(year), .by_group = TRUE) %>%
+        dplyr::slice_head(n = 1) %>%
+        dplyr::select(authorId, most_recent_paper = title)
+    
+    essential <- dplyr::left_join(essential, most_recent_paper, by = "authorId")
+
     message("use view_web(this_object, authorID) to open the author url in your browser.")
     message("use get_paper(this_object, authorID) to get a table of publication")
     message("top ten rows")
