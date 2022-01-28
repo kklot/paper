@@ -61,7 +61,7 @@ a_paper <- function(
     base_url <- get('base_url', envir = paper_env)
     url <- paste0(base_url, "paper/", id, "/citations/?fields=", args)
     cited_this <- httr::GET(url, httr::user_agent("k-paper"))
-    httr::stop_for_status(cited_this)
+    httr::stop_for_status(cited_this, paste('Getting paper ', id))
     o <- httr::content(cited_this, as = "parse")$data
     o <- purrr::map_dfr(o, function(x) {
         if (is.null(x[[1]]$paperId)) x[[1]]$paperId <- NA_character_
