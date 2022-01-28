@@ -125,7 +125,7 @@ an_author <- function(
     base_url <- get('base_url', envir = paper_env)
     url <- paste0(base_url, "author/", id, "?fields=", args)
     my_pp <- httr::GET(url, httr::user_agent("k-paper"))
-    httr::stop_for_status(my_pp, paste('Getting author ', id)))
+    httr::stop_for_status(my_pp, paste('Getting author ', id))
     ct <- httr::content(my_pp)
     o <- purrr::map_dfr(ct[["papers"]], function(x) {
         if (is.null(x$fieldsOfStudy)) x$fieldsOfStudy <- list(NA_character_)
