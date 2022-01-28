@@ -1,3 +1,15 @@
+paper_env <- new.env(parent = emptyenv())
+assign('base_url', "https://api.semanticscholar.org/graph/v1/", envir = paper_env)
+
+#' Update API url if needed
+#'
+#' In case API changes
+#' @param new_url new API url, eg "https://api.semanticscholar.org/graph/v1/"
+update_api <- function(new_url) 
+{
+    assign('base_url', new_url, envir = paper_env)
+}
+
 #' Get details of a single paper
 #' 
 #' @param id semanticscholar The following types of IDs are supported:
@@ -43,7 +55,7 @@ a_paper <- function(
     id = "649def34f8be52c8b66281af98ae884c09aef38b", 
     args = "citations/?fields=year,fieldsOfStudy,citationCount") 
 {
-    base_url <- "https://api.semanticscholar.org/graph/v1/"
+    base_url <- get('base_url', envir = paper_env)
     url <- paste0(base_url, "paper/", id, "/", args)
     cited_this <- httr::GET(url, httr::user_agent("k-paper"))
     httr::stop_for_status(cited_this)
