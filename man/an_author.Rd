@@ -2,7 +2,7 @@
 % Please edit documentation in R/badge.R
 \name{an_author}
 \alias{an_author}
-\title{Get details of a single paper}
+\title{Get details of an_author}
 \usage{
 an_author(
   id = "1741101",
@@ -12,13 +12,41 @@ an_author(
 )
 }
 \arguments{
-\item{id}{semanticscholar id, doi, pubmed,...}
+\item{id}{authorId as return by \code{\link[paper]{search_author}}}
+
+\item{args}{fields to get
+A comma-separated list of the fields to be returned.
+
+The following case-sensitive author fields are recognized:
+\itemize{
+\item \code{authorId} - Always included
+\item \code{externalIds}
+\item \code{url}
+\item \code{name} - Included if no fields are specified
+\item \code{aliases}
+\item \code{affiliations}
+\item \code{homepage}
+\item \code{paperCount}
+\item \code{citationCount}
+\item \code{hIndex}
+\item \code{papers.paperId} - Always included
+\item \code{papers.externalIds}
+\item \code{papers.url}
+\item \code{papers.title} - Included if no fields are specified
+\item \code{papers.abstract}
+\item \code{papers.venue}
+\item \code{papers.year}
+\item \code{papers.referenceCount}
+\item \code{papers.citationCount}
+\item \code{papers.influentialCitationCount}
+\item \code{papers.isOpenAccess}
+\item \code{papers.fieldsOfStudy}
+\item \code{papers.authors}\- Will include: \code{authorId} & \code{name}
+}}
 
 \item{level}{get the author paper's details only or also details of their
 cited papers?}
-
-\item{get}{what to get - hardcode now TODO: deal with whatever field requested}
 }
 \description{
-Get details of a single paper
+Get details of an_author
 }
