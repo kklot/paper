@@ -1,7 +1,43 @@
 #' Get details of a single paper
 #' 
-#' @param id semanticscholar id, doi, pubmed,...
-#' @param get what to get - hardcode now
+#' @param id semanticscholar The following types of IDs are supported:
+#' 
+#'   * `<sha>` - a Semantic Scholar ID, e.g. `649def34f8be52c8b66281af98ae884c09aef38b`
+#'   * `CorpusId:<id>` - Semantic Scholar numerical ID, e.g. `215416146`
+#'   * `DOI:<doi>` - a [Digital Object Identifier](http://doi.org/), e.g. `DOI:10.18653/v1/N18-3011`
+#'   * `ARXIV:<id>` - [arXiv.rg](https://arxiv.org/), e.g. `ARXIV:2106.15928`
+#'   * `MAG:<id>` - Microsoft Academic Graph, e.g. `MAG:112218234`
+#'   * `ACL:<id>` - Association for Computational Linguistics, e.g. `ACL:W12-3903`
+#'   * `PMID:<id>` - PubMed/Medline, e.g. `PMID:19872477`
+#'   * `PMCID:<id>` - PubMed Central, e.g. `PMCID:2323736`
+#'   * `URL:<url>` - URL from one of the sites listed below, e.g. `URL:https://arxiv.org/abs/2106.15928v1`
+#' 
+#' URLs are recognized from the following sites:
+#' 
+#'   * [semanticscholar.org](https://www.semanticscholar.org/)
+#'   * [arxiv.org](https://arxiv.org/)
+#'   * [aclweb.org](https://www.aclweb.org/)
+#'   * [acm.org](https://www.acm.org/)
+#'   * [biorxiv.org](https://www.biorxiv.org/)
+#' @param get what to get - hardcode now, a comma-separated list of the fields
+#' to be returned. The following case-sensitive citation fields are recognized:
+#' 
+#' - `contexts`
+#' - `intents`
+#' - `isInfluential`
+#' - `paperId` - Always included
+#' - `externalIds`
+#' - `url`
+#' - `title` - Included if no fields are specified
+#' - `abstract`
+#' - `venue`
+#' - `year`
+#' - `referenceCount`
+#' - `citationCount`
+#' - `influentialCitationCount`
+#' - `isOpenAccess`
+#' - `fieldsOfStudy`
+#' - `authors` - Up to 500 will be returned. Will include: `authorId` & `name`
 #' @export
 a_paper <- function(
     id = "649def34f8be52c8b66281af98ae884c09aef38b", 

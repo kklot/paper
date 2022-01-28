@@ -6,13 +6,52 @@
 \usage{
 a_paper(
   id = "649def34f8be52c8b66281af98ae884c09aef38b",
-  args = "citations/?fields=year,fieldsOfStudy,citationCount"
+  args = "year,fieldsOfStudy,citationCount,url"
 )
 }
 \arguments{
-\item{id}{semanticscholar id, doi, pubmed,...}
+\item{id}{semanticscholar The following types of IDs are supported:
+\itemize{
+\item \verb{<sha>} - a Semantic Scholar ID, e.g. \verb{649def34f8be52c8b66281af98ae884c09aef38b}
+\item \verb{CorpusId:<id>} - Semantic Scholar numerical ID, e.g. \code{215416146}
+\item \verb{DOI:<doi>} - a \href{http://doi.org/}{Digital Object Identifier}, e.g. \code{DOI:10.18653/v1/N18-3011}
+\item \verb{ARXIV:<id>} - \href{https://arxiv.org/}{arXiv.rg}, e.g. \code{ARXIV:2106.15928}
+\item \verb{MAG:<id>} - Microsoft Academic Graph, e.g. \code{MAG:112218234}
+\item \verb{ACL:<id>} - Association for Computational Linguistics, e.g. \code{ACL:W12-3903}
+\item \verb{PMID:<id>} - PubMed/Medline, e.g. \code{PMID:19872477}
+\item \verb{PMCID:<id>} - PubMed Central, e.g. \code{PMCID:2323736}
+\item \verb{URL:<url>} - URL from one of the sites listed below, e.g. \verb{URL:https://arxiv.org/abs/2106.15928v1}
+}
 
-\item{get}{what to get - hardcode now}
+URLs are recognized from the following sites:
+\itemize{
+\item \href{https://www.semanticscholar.org/}{semanticscholar.org}
+\item \href{https://arxiv.org/}{arxiv.org}
+\item \href{https://www.aclweb.org/}{aclweb.org}
+\item \href{https://www.acm.org/}{acm.org}
+\item \href{https://www.biorxiv.org/}{biorxiv.org}
+}}
+
+\item{get}{what to get - hardcode now, a comma-separated list of the fields
+to be returned. The following case-sensitive citation fields are recognized:
+\itemize{
+\item \code{contexts}
+\item \code{intents}
+\item \code{isInfluential}
+\item \code{paperId} - Always included
+\item \code{externalIds}
+\item \code{url}
+\item \code{title} - Included if no fields are specified
+\item \code{abstract}
+\item \code{venue}
+\item \code{year}
+\item \code{referenceCount}
+\item \code{citationCount}
+\item \code{influentialCitationCount}
+\item \code{isOpenAccess}
+\item \code{fieldsOfStudy}
+\item \code{authors} - Up to 500 will be returned. Will include: \code{authorId} & \code{name}
+}}
 }
 \description{
 Get details of a single paper

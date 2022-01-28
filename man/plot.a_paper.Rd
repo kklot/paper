@@ -4,12 +4,14 @@
 \alias{plot.a_paper}
 \title{Plot method for a_paper class}
 \usage{
-\method{plot}{a_paper}(a_paper, give_data = FALSE)
+\method{plot}{a_paper}(a_paper, give_data = FALSE, txt_seed = 1)
 }
 \arguments{
 \item{a_paper}{an \code{\link[paper]{a_paper}} object}
 
 \item{give_data}{give me data instead of the plot}
+
+\item{txt_seed}{seed to label text use in \code{ggrepel}}
 }
 \description{
 Produce a similar plot to PlumX metric, but the numbers of papers cited the
