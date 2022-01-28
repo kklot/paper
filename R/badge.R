@@ -53,10 +53,10 @@ update_api <- function(new_url)
 #' @export
 a_paper <- function(
     id = "649def34f8be52c8b66281af98ae884c09aef38b", 
-    args = "citations/?fields=year,fieldsOfStudy,citationCount") 
+    args = "year,fieldsOfStudy,citationCount,url") 
 {
     base_url <- get('base_url', envir = paper_env)
-    url <- paste0(base_url, "paper/", id, "/", args)
+    url <- paste0(base_url, "paper/", id, "/citations/?fields=", args)
     cited_this <- httr::GET(url, httr::user_agent("k-paper"))
     httr::stop_for_status(cited_this)
     o <- httr::content(cited_this, as = "parse")$data
